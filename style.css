@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+
+:root {
+  /* Fonts */
+  --font: 'Roboto', sans-serif;
+  /* Colors */
+  --color: #030303;
+  --back: #3c2b26;
+  --black: #000000;
+  --negro: #000000;
+  --white: #ffffff;
+  --blanco: #ffffff;
+  --cream: #b4a9a0;
+  --gray: #c8c3bd;
+  --brown: #ac8e78;
+  --red: #7b0505;
+  --verde: #095909;
+  --amarillo: #838319;
+  --pink: #C09893;
+  
+  /* Font Size */
+  --f9: 0.5625em;
+  --f10: 0.625em;
+  --f11: 0.6875em;
+  --f12: 0.75em;
+  --f13: 0.8125em;
+  --f14: 0.875em;
+  --f15: 0.9375em;
+  --f16: 1em;
+  --f17: 1.0625em;
+  --f18: 1.125em;
+  --f19: 1.1875em;
+  --f20: 1.25em;
+  --f21: 1.3125em;
+  --f22: 1.375em;
+  --f23: 1.4375em;
+  --f24: 1.5em;
+  --f25: 1.5625em;
+  --f27: 1.6875em;
+  --f28: 1.75em;
+  --f29: 1.8125em;
+  --f30: 1.875em;
+  --f32: 2em;
+  --f35: 2.1875em;
+  --f40: 2.5em;
+  --f45: 2.8125em;
+  --f48: 3em;
+  --f50: 3.125em;
+  --f55: 3.4375em;
+  --f60: 3.75em;
+  --f62: 3.875em;
+  --f63: 3.9375em;
+  --f65: 4.0625em;
+  --f66: 4.125em;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;;
+}
