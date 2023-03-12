@@ -7,6 +7,7 @@
     <title>Seguimiento de envío</title>
     <link rel="stylesheet" href="trackingView.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/logo_black.png" type="image/x-icon">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
@@ -19,9 +20,22 @@
     
 </head>
 <body>
-    <section>
+    <nav>
+        <div class="logo">
+          <a href="#"><img src="/images/logo.png" alt="Logo"></a>
+        </div>
+        <div class="nav-links">
+          <ul>
+            <!--<li><a href="#">Donar</a></li>-->
+            <li><a href="#">Inicio</a></li>
+            <li><a href="https://maizo21.github.io/profileCard/" target="_blank">Contacto</a></li>
+          </ul>
+        </div>
+      </nav>
+      
+    <main>
         <h1>Seguimiento de envío</h1>
-        <p class="status">Seguimiento de la donación número: <span id="numero-envio">XXXXXX</span></p>
+        <p class="status">Seguimiento de la donación número: <span id="numero-envio"></span></p>
 
         <div class="trackingView">
             <article class="tracking-container">
@@ -52,9 +66,9 @@
             <article class="tracking-details">
                 <h2>Información general del envío</h2>
                 <ul id="info-envio">
-                    <li class="id-envio">ID del envío: <span>XXXXXX</span></li>
-                    <li class="pais-origen">País de origen: <span>México</span></li>
-                    <li class="pais-destino">País de destino: <span>Estados Unidos</span></li>
+                    <li class="id-envio">ID del envío: <span></span></li>
+                    <li class="pais-origen">País de origen: <span></span></li>
+                    <li class="pais-destino">País de destino: <span></span></li>
                 </ul>
             </article>
         </div>
@@ -63,7 +77,13 @@
             <div id="map"></div>
         </article>
 
-    </section>
+        <article class="go-back">
+            <a href="#"> <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+              </svg>
+              </span> Volver al home</a>
+        </article>
+    </main>
 
     <script src="trackingView.js"></script>
 </body>
