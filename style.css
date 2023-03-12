@@ -17,9 +17,8 @@
   --verde: #095909;
   --amarillo: #838319;
   --pink: #C09893;
-  --lightBack: #d3cdc7;
-  --lightGreen: #9eee9e;
-  
+  --lightBack: #d3cdc7
+
   /* Font Size */
   --f9: 0.5625em;
   --f10: 0.625em;
@@ -60,4 +59,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;;
+}
+
+body {
+  font-family: var(--font);
+}
+
+img {
+  max-width: 100%;
 }
