@@ -14,91 +14,51 @@ document.onload = function(){
     const value = urlParams.get('id');
 
     if(value){
-        const obtenerEnvios = () => {
-            return new Promise((resolve, reject) => {
-              setTimeout(() => {
-                resolve(envios);
-              }, 4000);
-            });
-          }
 
-          obtenerEnvios().then(envios =>{
-            envios.forEach(envio =>{
-                if(envio.id == value){
-                    console.log(envio)
-                    ID_envio.innerHTML = envio.id;
-                    ID_top.innerHTML = envio.id
-                    pais_envio.innerHTML = envio.ciudadEnvio;
-                    pais_destino.innerHTML = envio.ciudadDestino;
-                    status.innerHTML = envio.estatusEnvio
+      fetch(`http://143.244.153.84/api/boxes/${value}`)
+        .then(response => response.json())
+        .then(data => {
+          
+            console.log(data.data)
+            ID_envio.innerHTML = data.data.uuid;
+            ID_top.innerHTML = data.data.uuid
+            pais_envio.innerHTML = data.data.origin.city;
+            pais_destino.innerHTML = data.data.destination.city;
 
-                    var map = L.map('map');
+            var map = L.map('map');
 
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '© OpenStreetMap contributors'
-                    }).addTo(map);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
 
 
-                    L.Routing.control({
-                        waypoints: [
-                            L.latLng(envio.latitudOrigen, envio.longitudOrigen), // Empieza
-                            L.latLng(envio.latitudDestino, envio.longitudDestino) // Termina
-                        ],
-                        routeWhileDragging: false,
-                        draggableWaypoints: false,
-                    }).addTo(map);
+            L.Routing.control({
+                waypoints: [
+                    L.latLng(data.data.origin.lat, data.data.origin.long), // Empieza
+                    L.latLng(data.data.destination.lat, data.data.destination.long) // Termina
+                ],
+                routeWhileDragging: false,
+                draggableWaypoints: false,
+            }).addTo(map);
 
 
-                    iconos.forEach(function() {
-                        if (envio.estatusEnvio == 'preparacion') {
-                            document.querySelector('.preparacion').classList.add('ready');
-                        }else if (envio.estatusEnvio == 'en camino'){
-                            document.querySelector('.en-camino').classList.add('ready');
-                            document.querySelector('.preparacion').classList.add('ready');
-                        }else if (envio.estatusEnvio == 'entregado'){
-                            document.querySelector('.en-camino').classList.add('ready');
-                            document.querySelector('.preparacion').classList.add('ready');
-                            document.querySelector('.entregado').classList.add('ready');
-                        }
-                    })
+            iconos.forEach(function() {
+                if (data.data.status == 'draft' || data.data.status == 'created') {
+                    document.querySelector('.preparacion').classList.add('ready');
+                    status.innerHTML = 'En preparación'
+                }else if (data.data.status == 'in_progress'){
+                    document.querySelector('.en-camino').classList.add('ready');
+                    document.querySelector('.preparacion').classList.add('ready');
+                    status.innerHTML = 'En camino'
+                }else if (data.data.status == 'delivered'){
+                    document.querySelector('.en-camino').classList.add('ready');
+                    document.querySelector('.preparacion').classList.add('ready');
+                    document.querySelector('.entregado').classList.add('ready');
+                    status.innerHTML = 'Entregado'
                 }
-
             })
-          });
+        })
+        .catch(error => console.error(error))
 }
 
 }();
-
-
-const envios = [
-    {
-      id: 1,
-      ciudadEnvio: 'Madrid',
-      ciudadDestino: 'Barcelona',
-      estatusEnvio: 'en camino',
-      latitudOrigen: 40.4168,
-      longitudOrigen: -3.7038,
-      latitudDestino: 41.3851,
-      longitudDestino: 2.1734
-    },
-    {
-      id: 2,
-      ciudadEnvio: 'Londres',
-      ciudadDestino: 'Edimburgo',
-      estatusEnvio: 'entregado',
-      latitudOrigen: 51.5074,
-      longitudOrigen: -0.1278,
-      latitudDestino: 55.9533,
-      longitudDestino: -3.1883
-    },
-    {
-      id: 3,
-      ciudadEnvio: 'Nueva York',
-      ciudadDestino: 'Los Ángeles',
-      estatusEnvio: 'preparacion',
-      latitudOrigen: 40.7128,
-      longitudOrigen: -74.0060,
-      latitudDestino: 34.0522,
-      longitudDestino: -118.2437
-    }
-  ];

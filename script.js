@@ -49,7 +49,9 @@ saveDonationButton.addEventListener('click', ()=>{
 
 
 searchButton.addEventListener('click', ()=>{
-  let id = document.getElementById('serial').value;
-  console.log(id);
-  window.location.href="/trackingView.html?id=" + id;
+  if (document.getElementById('serial').value != '' && document.getElementById('serial').value != ' ') { 
+    let id = document.getElementById('serial').value;
+    console.log(id);
+    window.location.href="/trackingView.html?id=" + id;
+  }
 })
