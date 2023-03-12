@@ -1,236 +1,198 @@
 body {
-  color: var(--color);
-  background-color: var(--lightBack);
-  font-family: var(--font);
-}
-
-main{
-  padding: 8vh 5vh;
-  overflow: auto;
-  width: calc(92%);
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-  font-size: var(--f25);
-  text-transform: uppercase;
-}
-
-ul {
-  list-style: none;
-}
-
-div.trackingView {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  gap: 5px;
-}
-
-.status {
-  text-align: right;
-  font-size: var(--f16);
-  margin: 50px auto;
-}
-
-h2 {
-  font-size: var(--f18);
-  font-weight: 500;
-}
-
-.tracking-container,
-.tracking-details {
-  background-color: var(--gray);
-  padding: 20px 15px;
-  position: relative;
-}
-
-.tracking-container::after {
-  content: "";
-  width: 1px;
-  position: absolute;
-  height: 100%;
-  background-color: var(--back);
-  bottom: 0;
-  right: -3px;
-}
-
-#tracking-icons,
-#estados-envio {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  place-content: center;
-  place-items: center;
-  margin-top: 20px;
-}
-
-#estados-envio {
-  text-align: center;
-}
-
-#tracking-icons li {
-  padding: 20px;
-  width: 60%;
-  margin: 0 auto;
-  background: var(--white);
-  border-radius: 50px;
-  position: relative;
-  transition: 0.3s;
-}
-
-#tracking-icons li svg{
+    color: var(--color);
+    background-color: var(--lightBack);
+    font-family: var(--font);
+  }
+  
+  main{
+    padding: 8vh 5vh;
+    overflow: auto;
+    width: calc(92%);
+    margin: 0 auto;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: var(--f25);
+    text-transform: uppercase;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  div.trackingView {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 5px;
+  }
+  
+  .status {
+    text-align: right;
+    font-size: var(--f16);
+    margin: 50px auto;
+  }
+  
+  h2 {
+    font-size: var(--f18);
+    font-weight: 500;
+  }
+  
+  .tracking-container,
+  .tracking-details {
+    background-color: var(--gray);
+    padding: 20px 15px;
+    position: relative;
+  }
+  
+  .tracking-container::after {
+    content: "";
+    width: 1px;
+    position: absolute;
+    height: 100%;
+    background-color: var(--back);
+    bottom: 0;
+    right: -3px;
+  }
+  
+  #tracking-icons,
+  #estados-envio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-content: center;
+    place-items: center;
+    margin-top: 20px;
+  }
+  
+  #estados-envio {
+    text-align: center;
+  }
+  
+  #tracking-icons li {
+    padding: 20px;
+    width: 60%;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 50px;
+    position: relative;
     transition: 0.3s;
-}
-
-
-#tracking-icons li.en-camino {
-    transition: 0.6s;
-}
-
-#tracking-icons li.en-camino svg {
-    animation-delay: 0.5s;
-}
-
-#tracking-icons li.entregado {
-    transition: 1s;
-}
-
-#tracking-icons li.entregado svg {
-    animation-delay: 1s;
-}
-
-
-
-#tracking-icons li.ready{
-    background: var(--lightGreen);
-    animation-duration: 1s;
-}
-
-#tracking-icons li.ready svg{
-    animation-name: Rotar;
-    animation-duration: 1s;
-}
-
-@keyframes Rotar {
-    0%{
-        transform: rotateZ(0deg);
-    }
-    100%{
-        transform: rotateZ(-360deg);
-    }
-}
-
-#tracking-icons li::after {
-  content: "";
-  width: 68%;
-  position: absolute;
-  height: 15px;
-  background-color: var(--white);
-  bottom: 40%;
-  right: -67%;
-}
-
-#tracking-icons li:last-child::after {
-  display: none;
-}
-
-#estados-envio,
-#info-envio {
-  margin-top: 20px;
-  color: var(--white);
-}
-
-#estados-envio li,
-#info-envio li {
-  font-style: italic;
-}
-
-.map-container {
-  margin-top: 20px;
-}
-
-#map {
-  height: 300px;
-}
-
-.go-back a{
-  display: inline-flex;
-  margin-top: 5vh;
-  color: var(--back);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.go-back a:hover{
-  color: var(--cream);
-}
-
-.go-back a svg{
-  width: 20px;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: var(--cream);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  font-family: var(--font);
-}
-
-.logo img {
-  max-height: 80px;
-}
-
-.nav-links ul {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  display: block;
-  padding: 10px;
-  color: #333;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  background-color: var(--back);
-  color: var(--white);
-}
-
-
-@media only screen and (min-width: 100px) and (max-width: 830px) {
-
-    main{
-        padding: 6vh 2vh;;
-    }
-
-    .status{
-        text-align: center;
-    }
-
-    div.trackingView{
-        grid-template-columns: 1fr;
-    }
-
-    .tracking-container::after{
-        width: 100%;
-        height: 1px;
-        bottom: -3px;
-        right: 0px;
-    }
-
-    #tracking-icons li{
-        padding: 10px;
-        width: 70%;
-    }
-}
+  }
+  
+  #tracking-icons li svg{
+      transition: 0.3s;
+  }
+  
+  
+  #tracking-icons li.en-camino {
+      transition: 0.6s;
+  }
+  
+  #tracking-icons li.en-camino svg {
+      animation-delay: 0.5s;
+  }
+  
+  #tracking-icons li.entregado {
+      transition: 1s;
+  }
+  
+  #tracking-icons li.entregado svg {
+      animation-delay: 1s;
+  }
+  
+  
+  
+  #tracking-icons li.ready{
+      background: var(--lightGreen);
+      animation-duration: 1s;
+  }
+  
+  #tracking-icons li.ready svg{
+      animation-name: Rotar;
+      animation-duration: 1s;
+  }
+  
+  @keyframes Rotar {
+      0%{
+          transform: rotateZ(0deg);
+      }
+      100%{
+          transform: rotateZ(-360deg);
+      }
+  }
+  
+  #tracking-icons li::after {
+    content: "";
+    width: 68%;
+    position: absolute;
+    height: 15px;
+    background-color: var(--white);
+    bottom: 40%;
+    right: -67%;
+  }
+  
+  #tracking-icons li:last-child::after {
+    display: none;
+  }
+  
+  #estados-envio,
+  #info-envio {
+    margin-top: 20px;
+    color: var(--white);
+  }
+  
+  #estados-envio li,
+  #info-envio li {
+    font-style: italic;
+  }
+  
+  .map-container {
+    margin-top: 20px;
+  }
+  
+  #map {
+    height: 300px;
+  }
+  
+  .go-back a{
+    display: inline-flex;
+    margin-top: 5vh;
+    color: var(--back);
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .go-back a:hover{
+    color: var(--cream);
+  }
+  
+  .go-back a svg{
+    width: 20px;
+  }
+  
+  @media only screen and (min-width: 100px) and (max-width: 830px) {
+  
+      main{
+          padding: 6vh 2vh;;
+      }
+  
+      .status{
+          text-align: center;
+      }
+  
+      div.trackingView{
+          grid-template-columns: 1fr;
+      }
+  
+      .tracking-container::after{
+          width: 100%;
+          height: 1px;
+          bottom: -3px;
+          right: 0px;
+      }
+  
+      #tracking-icons li{
+          padding: 10px;
+          width: 70%;
+      }
+  }
+  
