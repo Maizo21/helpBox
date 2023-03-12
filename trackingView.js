@@ -18,8 +18,6 @@ document.onload = function(){
       fetch(`http://143.244.153.84/api/boxes/${value}`)
         .then(response => response.json())
         .then(data => {
-          
-            console.log(data.data)
             ID_envio.innerHTML = data.data.uuid;
             ID_top.innerHTML = data.data.uuid
             pais_envio.innerHTML = data.data.origin.city;
