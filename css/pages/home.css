@@ -83,12 +83,18 @@
 
 
 @keyframes moveBox{
-  from {
+  0%{
+    left: 0;
+  }
+  50% {
     left: -10%;
   }
 
-  to {
-    right: -10%;
+  75% {
+    left: 10%;
+  }
+  100%{
+    left: 0;
   }
 }
 

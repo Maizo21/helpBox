@@ -3,6 +3,7 @@ const closeModalButton =document.getElementById('close-modal')
 const modalDonation = document.getElementById('modal-new')
 const donationForm = document.getElementById('donation-form')
 const saveDonationButton = document.getElementById('save-donation')
+const searchButton = document.querySelector('.search-id');
 
 const getDonationData = () => {
   const donationData = {
@@ -18,7 +19,6 @@ const saveDonation = async () => {
   const donationData = getDonationData();
   const url = 'add url here';
 
-  // Default options are marked with *
   const response = await fetch(url, {
     method: "POST",
     mode: "cors",
@@ -45,4 +45,11 @@ closeModalButton.addEventListener('click',()=>{
 
 saveDonationButton.addEventListener('click', ()=>{
   getDonationData();
+})
+
+
+searchButton.addEventListener('click', ()=>{
+  let id = document.getElementById('serial').value;
+  console.log(id);
+  window.location.href="/trackingView.html?id=" + id;
 })
